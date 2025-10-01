@@ -3,7 +3,7 @@ import Loader from "@/components/Loader";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -19,7 +19,7 @@ export default function Home() {
     </div>)
   }
   return (
-    <div className="min-h-full overflow-x-hidden bg-white">
+    <div className="h-full overflow-x-hidden bg-[#2B4854]">
 
     </div>
   );

@@ -3,11 +3,15 @@ import React, { useRef } from 'react'
 import Circle from './specific/loader/Circle'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-const Loader = ({setLoading}) => {
+import { CustomEase } from 'gsap/CustomEase';
+
+const Loader = ({ setLoading }) => {
+    gsap.registerPlugin(CustomEase);
     const container = useRef(null);
     const hideLoader = () => {
         setLoading(false);
     }
+    CustomEase.create("powerOut", "M0,0 C0.1,0.7 0.25,1 1,1");
     useGSAP(() => {
         const circles = Array.from(document.querySelectorAll('.circle'));
         const targetCircle = circles[circles.length - 1];
@@ -29,14 +33,14 @@ const Loader = ({setLoading}) => {
         tl.to(targetCircle, {
             scale: 100, // Scale up massively to cover the viewport
             duration: 1.5,
-            ease: 'power2.in',
+            ease: 'powerOut',
             onComplete: () => {
                 gsap.to(container.current, { autoAlpha: 0 });
                 hideLoader();
             }
         }, "+=10");
 
-        tl.to(updatedCircles,{
+        tl.to(updatedCircles, {
             opacity: 0,
             duration: 0.5
         }, "<");
