@@ -43,7 +43,7 @@ const MenuBar = ({ menuOpen, setMenuOpen }) => {
     return (
         <div
             ref={menuRef}
-            className="menu-bar absolute w-full h-0 opacity-0 z-50 bg-[#853D39] top-0 left-0 overflow-hidden"
+            className="menu-bar absolute w-full h-0 opacity-0 z-50 bg-[#582F30] top-0 left-0 overflow-hidden"
         >
             <NavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
             <div className="flex flex-col items-center justify-center pt-15 gap-10 text-white">

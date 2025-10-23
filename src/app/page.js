@@ -1,7 +1,7 @@
 "use client"
 import Loader from "@/components/Loader";
+import HeroSection from "@/components/specific/hero/HeroSection";
 import { useState, useEffect } from "react";
-
 export default function Home() {
   const [loading, setLoading] = useState(false);
 
@@ -19,8 +19,8 @@ export default function Home() {
     </div>)
   }
   return (
-    <div className="h-full overflow-x-hidden bg-[#2B4854]">
-
+    <div className="overflow-x-hidden bg-[#2B4854]">
+      <HeroSection />
     </div>
   );
 }
