@@ -5,7 +5,7 @@ import HeroPara from './HeroPara'
 import HeroBtns from './HeroBtns'
 const HeroText = () => {
   return (
-    <div className='pl-[100px] w-full h-full flex flex-col justify-center items-start'>
+    <div className='md:pl-[100px] pt-4 pl-4 w-full md:h-full flex flex-col justify-center items-start'>
         <TagLine />
         <HeroTitle />
         <HeroPara />
