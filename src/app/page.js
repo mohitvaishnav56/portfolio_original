@@ -1,5 +1,6 @@
 "use client"
 import Loader from "@/components/Loader";
+import About from "@/components/specific/about/About";
 import HeroSection from "@/components/specific/hero/HeroSection";
 import { useState, useEffect } from "react";
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden bg-[#2B4854]">
       <HeroSection />
+      <About />
     </div>
   );
 }
