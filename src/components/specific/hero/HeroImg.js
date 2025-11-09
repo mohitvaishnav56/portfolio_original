@@ -7,6 +7,7 @@ const HeroImg = () => {
       alt="Hero Image"
       width={500}
       height={300}
+      priority
     />
     )
 }

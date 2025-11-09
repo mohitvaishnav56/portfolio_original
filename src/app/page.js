@@ -2,6 +2,7 @@
 import Loader from "@/components/Loader";
 import About from "@/components/specific/about/About";
 import ContactSection from "@/components/specific/contact/ContactSection";
+import Footer from "@/components/specific/footer/Footer";
 import HeroSection from "@/components/specific/hero/HeroSection";
 import ProjectsSection from "@/components/specific/projects/ProjectsSection";
 import UnderDevelopmentPopup from "@/components/UnderDevelopmentPopup";
@@ -38,6 +39,7 @@ export default function Home() {
       <About />
       <ProjectsSection />
       <ContactSection />
+      <Footer />
     </div>
   );
 }
