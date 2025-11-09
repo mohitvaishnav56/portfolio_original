@@ -39,7 +39,7 @@ const Form = () => {
             <textarea 
                 value={formData.message}
                 id="message"
-                placeholder='Your Email' 
+                placeholder='Your Message' 
                 className='p-4 h-2/10 rounded-md border text-white placeholder:text-gray-200 border-gray-300 focus:border-none focus:outline-none focus:ring-2 focus:ring-[#CC8D59]'
                 onChange={handleChange}
             />

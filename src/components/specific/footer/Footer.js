@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-
   return (
     <footer className="w-full ">
       <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10">
