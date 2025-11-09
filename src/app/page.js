@@ -1,6 +1,7 @@
 "use client"
 import Loader from "@/components/Loader";
 import About from "@/components/specific/about/About";
+import ContactSection from "@/components/specific/contact/ContactSection";
 import HeroSection from "@/components/specific/hero/HeroSection";
 import ProjectsSection from "@/components/specific/projects/ProjectsSection";
 import UnderDevelopmentPopup from "@/components/UnderDevelopmentPopup";
@@ -36,6 +37,7 @@ export default function Home() {
       <HeroSection />
       <About />
       <ProjectsSection />
+      <ContactSection />
     </div>
   );
 }
