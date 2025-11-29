@@ -9,7 +9,7 @@ import UnderDevelopmentPopup from "@/components/UnderDevelopmentPopup";
 import { useState, useEffect } from "react";
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
