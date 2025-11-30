@@ -1,13 +1,14 @@
 const { createSlice } = require("@reduxjs/toolkit");
-const gangster = require("../assets/images/Gangster.png");
-const prism = require("../assets/images/Prism.png");
-const CRED = require("../assets/images/CRED.png");
+const gangster = require("../../public/Gangster.png");
+const prism = require("../../public/Prism.png");
+const CRED = require("../../public/CRED.png");
+const { idGenerator } = require("@/utils/commonUtils");
 
 const projectSlice = createSlice({
     name: "projects",
     initialState: {
         projects: [{
-            id: 1,
+            id: idGenerator(),
             title: "Gangster the Street Wear Brand",
             tag: ["UI/UX Design", "Development"],
             coverImg: gangster,
@@ -17,7 +18,7 @@ const projectSlice = createSlice({
             figmaLink: "https://www.figma.com/design/9wsdjigW5mB8DxtFHhjYrm/the_one_creative_thing?node-id=1-2&t=6TKwzNbqtC4TOSoI-1",
         },
         {
-            id: 2,
+            id: idGenerator(),
             title: "Prism Roadmap Generator",
             tag: ["UI/UX Design", "Development"],
             description: "A tool that helps users create detailed roadmaps for their projects with customizable templates and collaboration features.",
@@ -27,10 +28,20 @@ const projectSlice = createSlice({
             figmaLink: "https://www.figma.com/design/N2JQc0KyJUaWGAdhsP49na/Prism?node-id=135-23&t=TYuIvFSURAcdzNvi-1",
         },
         {
-            id: 3,
+            id: idGenerator(),
             title: "CRED Clone",
             tag: ["Frontend"],
             description: "A clone of the popular CRED app, featuring a sleek design and user-friendly interface for managing credit cards and rewards.",
+            projectLink: "https://shiny-duckanoo-873a13.netlify.app/",
+            githubLink: "",
+            coverImg: CRED,
+            figmaLink: "",
+        },
+        {
+            id: idGenerator(),
+            title: "Binary Search Tree Visualizer",
+            tag: ["Frontend"],
+            description: "../../public",
             projectLink: "https://shiny-duckanoo-873a13.netlify.app/",
             githubLink: "",
             coverImg: CRED,

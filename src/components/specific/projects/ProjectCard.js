@@ -69,7 +69,7 @@ function ProjectCard({ project }) {
                 </p>
 
                 <Link
-                    href={`/projects/${project.id}`}
+                    href={`/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
                     className="text-sm font-semibold text-[#853D39] hover:text-[#612a27]"
                 >
                     View More...
