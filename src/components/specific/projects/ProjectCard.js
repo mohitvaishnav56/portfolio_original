@@ -38,7 +38,7 @@ function ProjectCard({ project }) {
                             className="h-7 w-7 flex items-center justify-center rounded-full
                             bg-[#2B4854] hover:bg-[#1f3942] transition"
                         >
-                            <FaGithub className="text-white text-[14px]" />
+                            <FaGithub className="text-white text-[20px]" />
                         </Link>
                     )}
                     {project.figmaLink && (
