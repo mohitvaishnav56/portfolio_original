@@ -1,7 +1,7 @@
 const { createSlice } = require("@reduxjs/toolkit");
 const gangster = require("../assets/images/Gangster.png");
 const prism = require("../assets/images/Prism.png");
-const cred = require("../assets/images/CRED.png");
+const CRED = require("../assets/images/CRED.png");
 
 const projectSlice = createSlice({
     name: "projects",
@@ -33,7 +33,7 @@ const projectSlice = createSlice({
             description: "A clone of the popular CRED app, featuring a sleek design and user-friendly interface for managing credit cards and rewards.",
             projectLink: "https://shiny-duckanoo-873a13.netlify.app/",
             githubLink: "",
-            coverImg: cred,
+            coverImg: CRED,
             figmaLink: "",
         }
         ],
