@@ -3,6 +3,7 @@ const gangster = require("../../public/Gangster.png");
 const prism = require("../../public/Prism.png");
 const CRED = require("../../public/CRED.png");
 const BST = require("../../public/BST.png");
+const SBI = require("../../public/SBI.png");
 const { idGenerator } = require("@/utils/commonUtils");
 
 const projectSlice = createSlice({
@@ -13,7 +14,7 @@ const projectSlice = createSlice({
             title: "Gangster the Street Wear Brand",
             tag: ["UI/UX Design", "Development"],
             coverImg: gangster,
-            description: "A streetwear brand that embodies the spirit of urban culture with edgy designs and high-quality materials.",
+            description: "Brand identity and responsive e-commerce storefront for Gangster streetwear, featuring product galleries, cart functionality, and a bold urban visual style.",
             projectLink: "https://minor-project-5th-sem.vercel.app/",
             githubLink: "https://github.com/mohitvaishnav56/minor_project_5th_sem",
             figmaLink: "https://www.figma.com/design/9wsdjigW5mB8DxtFHhjYrm/the_one_creative_thing?node-id=1-2&t=6TKwzNbqtC4TOSoI-1",
@@ -22,7 +23,7 @@ const projectSlice = createSlice({
             id: idGenerator(),
             title: "Prism Roadmap Generator",
             tag: ["UI/UX Design", "Development"],
-            description: "A tool that helps users create detailed roadmaps for their projects with customizable templates and collaboration features.",
+            description: "An interactive roadmap generator that lets teams create, customize, and share project roadmaps with templates, milestones, and collaborative editing.",
             projectLink: "https://prismroadmap.netlify.app",
             githubLink: "https://github.com/Hacktecher-04/SIH_frontend.git",
             coverImg: prism,
@@ -32,7 +33,7 @@ const projectSlice = createSlice({
             id: idGenerator(),
             title: "CRED Clone",
             tag: ["Frontend"],
-            description: "A clone of the popular CRED app, featuring a sleek design and user-friendly interface for managing credit cards and rewards.",
+            description: "A frontend recreation of the CRED app showcasing a polished UI for managing credit cards, rewards, and transaction summaries.",
             projectLink: "https://shiny-duckanoo-873a13.netlify.app/",
             githubLink: "",
             coverImg: CRED,
@@ -42,11 +43,20 @@ const projectSlice = createSlice({
             id: idGenerator(),
             title: "Binary Search Tree Visualizer",
             tag: ["Frontend"],
-            description: "This project is an interactive Binary Search Tree (BST) visualizer that allows users to insert, search, traverse, and delete nodes in real time. It demonstrates how BSTs work internally using a clean UI and smooth animations.",
+            description: "An interactive Binary Search Tree visualizer enabling real-time insertion, search, traversal, and deletion with animated visual feedback and explanations.",
             projectLink: "https://mohitvaishnav56.github.io/Binary_Search_Tree",
             githubLink: "https://github.com/mohitvaishnav56/Binary_Search_Tree",
             coverImg: BST,
             figmaLink: "",
+        }, {
+            id: idGenerator(),
+            title: "SBI online main page reimagined",
+            tag: ["UI/UX Design & Frontend", "frontend"],
+            description: "A modern reimagining of the SBI Online main page focused on improved usability, responsive layout, clear information hierarchy, and a refreshed visual design.",
+            projectLink: "",
+            githubLink: "https://github.com/mohitvaishnav56/SBIOnline_clone",
+            coverImg: SBI,
+            figmaLink: "https://www.figma.com/design/iCfWVIegvH37kUr8U3cgzM/SBI?node-id=0-1&t=QXCbuIEkxhJrsb7a-1",
         },
         ],
     },
