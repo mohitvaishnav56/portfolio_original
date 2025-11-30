@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 const gangster = require("../../public/Gangster.png");
 const prism = require("../../public/Prism.png");
 const CRED = require("../../public/CRED.png");
+const BST = require("../../public/BST.png");
 const { idGenerator } = require("@/utils/commonUtils");
 
 const projectSlice = createSlice({
@@ -41,12 +42,12 @@ const projectSlice = createSlice({
             id: idGenerator(),
             title: "Binary Search Tree Visualizer",
             tag: ["Frontend"],
-            description: "../../public",
-            projectLink: "https://shiny-duckanoo-873a13.netlify.app/",
-            githubLink: "",
-            coverImg: CRED,
+            description: "This project is an interactive Binary Search Tree (BST) visualizer that allows users to insert, search, traverse, and delete nodes in real time. It demonstrates how BSTs work internally using a clean UI and smooth animations.",
+            projectLink: "https://mohitvaishnav56.github.io/Binary_Search_Tree",
+            githubLink: "https://github.com/mohitvaishnav56/Binary_Search_Tree",
+            coverImg: BST,
             figmaLink: "",
-        }
+        },
         ],
     },
     reducers: {
