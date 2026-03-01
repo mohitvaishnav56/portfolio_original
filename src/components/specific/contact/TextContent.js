@@ -2,12 +2,12 @@ import React from 'react'
 
 const TextContent = () => {
     return (
-        <div className='md:w-[45%] w-full flex flex-col justify-center gap-4 md:h-full px-[3%] py-4'>
-            <h1 className='text-[#CD9061] font-bold text-5xl md:text-7xl '>
-                Say Hello,
+        <div className='w-full md:w-1/2 flex flex-col justify-center gap-8 pr-0 md:pr-16'>
+            <h1 className='text-white font-black text-6xl md:text-8xl tracking-tighter uppercase leading-[0.9]'>
+                Say <br /> <span className="text-transparent [-webkit-text-stroke:2px_white]">Hello.</span>
             </h1>
-            <p className='md:text-2xl text-xl text-gray-200'>
-                I&apos;m currently seeking new opportunities and love collaborating on exciting projects. If you have a role or project in mind where my skills in design and development could be a good fit, I&apos;d love to hear from you.
+            <p className='text-xl text-gray-400 font-light leading-relaxed max-w-md'>
+                I am currently seeking new opportunities and love collaborating on exciting projects. Have a role or idea in mind? I'd love to hear from you.
             </p>
         </div>
     )

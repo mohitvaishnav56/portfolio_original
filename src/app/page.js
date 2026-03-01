@@ -1,6 +1,7 @@
 "use client"
 import Loader from "@/components/Loader";
 import About from "@/components/specific/about/About";
+import ResumeSection from "@/components/specific/about/ResumeSection";
 import ContactSection from "@/components/specific/contact/ContactSection";
 import Footer from "@/components/specific/footer/Footer";
 import HeroSection from "@/components/specific/hero/HeroSection";
@@ -29,16 +30,16 @@ export default function Home() {
   }
   return (
     <div className="overflow-x-hidden bg-[#2B4854]">
-
       <UnderDevelopmentPopup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />
 
-      <HeroSection />
-      <About />
-      <ProjectsSection />
-      <ContactSection />
+      <div id="hero"><HeroSection /></div>
+      <div id="about"><About /></div>
+      <ResumeSection />
+      <div id="projects"><ProjectsSection /></div>
+      <div id="contact"><ContactSection /></div>
       <Footer />
     </div>
   );

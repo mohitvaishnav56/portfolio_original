@@ -4,21 +4,14 @@ const prism = require("../../public/Prism.png");
 const CRED = require("../../public/CRED.png");
 const BST = require("../../public/BST.png");
 const SBI = require("../../public/SBI.png");
+const CineLove = require("../../public/CineLove.jpg");
 const { idGenerator } = require("@/utils/commonUtils");
 
 const projectSlice = createSlice({
     name: "projects",
     initialState: {
-        projects: [{
-            id: idGenerator(),
-            title: "Gangster the Street Wear Brand",
-            tag: ["UI/UX Design", "Development"],
-            coverImg: gangster,
-            description: "Brand identity and responsive e-commerce storefront for Gangster streetwear, featuring product galleries, cart functionality, and a bold urban visual style.",
-            projectLink: "https://minor-project-5th-sem.vercel.app/",
-            githubLink: "https://github.com/mohitvaishnav56/minor_project_5th_sem",
-            figmaLink: "https://www.figma.com/design/9wsdjigW5mB8DxtFHhjYrm/the_one_creative_thing?node-id=1-2&t=6TKwzNbqtC4TOSoI-1",
-        },
+        activeFilter: 'All', // 'All', 'Web Apps', 'UI/UX Design'
+        projects: [
         {
             id: idGenerator(),
             title: "Prism Roadmap Generator",
@@ -28,6 +21,16 @@ const projectSlice = createSlice({
             githubLink: "https://github.com/Hacktecher-04/SIH_frontend.git",
             coverImg: prism,
             figmaLink: "https://www.figma.com/design/N2JQc0KyJUaWGAdhsP49na/Prism?node-id=135-23&t=TYuIvFSURAcdzNvi-1",
+        },
+        {
+            id: idGenerator(),
+            title: "Gangster the Street Wear Brand",
+            tag: ["UI/UX Design", "Development"],
+            coverImg: gangster,
+            description: "Brand identity and responsive e-commerce storefront for Gangster streetwear, featuring product galleries, cart functionality, and a bold urban visual style.",
+            projectLink: "https://minor-project-5th-sem.vercel.app/",
+            githubLink: "https://github.com/mohitvaishnav56/minor_project_5th_sem",
+            figmaLink: "https://www.figma.com/design/9wsdjigW5mB8DxtFHhjYrm/the_one_creative_thing?node-id=1-2&t=6TKwzNbqtC4TOSoI-1",
         },
         {
             id: idGenerator(),
@@ -58,13 +61,25 @@ const projectSlice = createSlice({
             coverImg: SBI,
             figmaLink: "https://www.figma.com/design/iCfWVIegvH37kUr8U3cgzM/SBI?node-id=0-1&t=QXCbuIEkxhJrsb7a-1",
         },
+        {
+            id: idGenerator(),
+            title: "Cine-Love: OMDB Api Based Web App",
+            tag: ["Development", "React"],
+            description: "Developed a responsive web app for browsing movies and TV shows dynamically. Features include dynamic routing, RESTful API integration, and automatic color palette extraction using Node Vibrant.",
+            projectLink: "https://cine-love.vercel.app",
+            githubLink: "",
+            coverImg: CineLove,
+            figmaLink: "",
+        },
         ],
     },
     reducers: {
         addProjects: (state, action) => {
             state.projects.push(action.payload);
         },
-
+        setFilter: (state, action) => {
+            state.activeFilter = action.payload;
+        }
     },
 });
 

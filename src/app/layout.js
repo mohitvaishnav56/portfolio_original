@@ -1,5 +1,6 @@
 "use client"
 import { LoadingProvider } from "@/providers/LoadingProvider";
+import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import "./globals.css";
 import NavBar from "@/components/layouts/NavBar";
 import { useState } from "react";
@@ -15,14 +16,16 @@ export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <html lang="en" className="h-full w-full overflow-x-hidden">
-      <body className={"h-full w-full oveflow-x-hidden bg-[#2B4854] relative"+ (menuOpen ? " overflow-hidden" : "")}>
-        <NavBar menuOpen={menuOpen} setMenuOpen = {setMenuOpen}/>
-        <MenuBar menuOpen={menuOpen} setMenuOpen = {setMenuOpen}/>
-        <Provider store={store}>
-          <LoadingProvider>
-            {children}
-          </LoadingProvider>
-        </Provider>
+      <body className={"h-full w-full oveflow-x-hidden relative" + (menuOpen ? " overflow-hidden" : "")}>
+        <SmoothScrollProvider>
+          <Provider store={store}>
+            <NavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <MenuBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <LoadingProvider>
+              {children}
+            </LoadingProvider>
+          </Provider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
