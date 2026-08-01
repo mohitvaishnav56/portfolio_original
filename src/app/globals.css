@@ -1,39 +1,40 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens (Ethereal Glass Archetype) ─── */
 :root {
-  --bg-color: #0a0a0a;
-  --text-main: #f3f3f3;
-  --accent: #d4d4d4;
+  --bg-dark: #050508;
+  --bg-elevated: #0c0c12;
+  --bg-card: rgba(12, 12, 18, 0.72);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --text-primary: #ededf0;
+  --text-secondary: #6b6b7b;
+  --text-tertiary: #3e3e4e;
+  --accent: #d4d4dc;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
 }
 
+/* ─── Base ─── */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--text-main);
-  color: var(--bg-color);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-/* Lenis Recommended CSS */
+/* ─── Lenis Smooth Scroll ─── */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -53,4 +54,54 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* ─── Noise Grain Overlay (fixed layer, never scrolling) ─── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Premium Cubic Bezier Tokens ─── */
+.ease-out-expo {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ease-out-quint {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

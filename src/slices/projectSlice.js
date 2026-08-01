@@ -1,10 +1,10 @@
 const { createSlice } = require("@reduxjs/toolkit");
-const gangster = require("../../public/Gangster.png");
-const prism = require("../../public/Prism.png");
-const CRED = require("../../public/CRED.png");
-const BST = require("../../public/BST.png");
-const SBI = require("../../public/SBI.png");
-const CineLove = require("../../public/CineLove.jpg");
+const gangster = require("../../public/Gangster.webp");
+const prism = require("../../public/Prism.webp");
+const CRED = require("../../public/CRED.webp");
+const BST = require("../../public/BST.webp");
+const SBI = require("../../public/SBI.webp");
+const CineLove = require("../../public/CineLove.webp");
 const { idGenerator } = require("@/utils/commonUtils");
 
 const projectSlice = createSlice({

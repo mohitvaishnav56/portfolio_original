@@ -1,70 +1,103 @@
-import useProjects from '@/hooks/useProjects';
-import ProjectCard from './ProjectCard';
-import React, { useRef } from 'react';
+"use client";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useSelector } from 'react-redux';
+import { projectsData } from "@/data/portfolioData";
+import ProjectCard from "./ProjectCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
-  const projects = useProjects();
-  const activeFilter = useSelector(state => state.projects.activeFilter);
-  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const cardsRef = useRef([]);
 
-  useGSAP(() => {
-    // Reveal the main title when scrolling into view
-    gsap.fromTo(".projects-title-word",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".projects-header-container",
-          start: "top 80%",
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReduced) {
+      gsap.set([headerRef.current, ...cardsRef.current], { opacity: 1, y: 0 });
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      /* Header entrance reveal */
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+            once: true,
+          },
         }
-      }
-    );
-  }, { scope: containerRef });
+      );
+
+      /* Stagger reveal project cards as they enter the viewport */
+      cardsRef.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              once: true,
+            },
+            delay: i * 0.05,
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div ref={containerRef} className='w-full min-h-screen bg-[var(--bg-color)] px-6 md:px-12 py-32'>
+    <section
+      ref={sectionRef}
+      className="relative w-full py-32 md:py-40 px-6 md:px-12 lg:px-20 overflow-hidden bg-[var(--bg-dark)]"
+    >
+      <div className="max-w-[1400px] mx-auto">
+        
+        {/* ─── Section Header (No metadata eyebrows, clean visual focus) ─── */}
+        <div ref={headerRef} className="mb-20 md:mb-28 max-w-2xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-[-0.03em] leading-[1.08] text-[var(--text-primary)] uppercase font-sans">
+            Featured
+            <br />
+            Engineering Works
+          </h2>
+          <p className="text-sm text-[var(--text-secondary)] font-light leading-relaxed mt-4 max-w-md">
+            A selective index of digital systems, developer tools, and responsive interfaces crafted with focus.
+          </p>
+        </div>
 
-      {/* Header Container */}
-      <div className="projects-header-container mb-24 md:mb-40 max-w-6xl mx-auto overflow-hidden">
-        <h2 className="text-5xl md:text-[6vw] font-black uppercase tracking-tighter text-white leading-none flex gap-4 flex-wrap">
-          <span className="projects-title-word">Selected</span>
-          <span className="projects-title-word text-transparent [-webkit-text-stroke:1px_white] xl:[-webkit-text-stroke:2px_white]">Works</span>
-          <span className="projects-title-word text-sm md:text-xl font-normal tracking-normal self-end mb-2 ml-4 text-gray-400 lowercase italic">
-            (2023 - Present)
-          </span>
-        </h2>
-      </div>
-
-      {/* Cards Stack (No longer a grid, but a vertical list of massive features) */}
-      <div className='w-full max-w-6xl mx-auto flex flex-col'>
-        {projects
-          .filter(project => {
-            if (activeFilter === 'All') return true;
-            if (activeFilter === 'Web Apps') {
-              return project.tag.some(t => t.toLowerCase().includes('development') || t.toLowerCase().includes('frontend'));
-            }
-            if (activeFilter === 'UI/UX Design') {
-              return project.tag.some(t => t.toLowerCase().includes('design'));
-            }
-            return true;
-          })
-          .map((project, index) => (
-            <ProjectCard key={project.id || index} project={project} index={index} />
+        {/* ─── Asymmetric Stacked Cards ─── */}
+        <div className="flex flex-col gap-28 md:gap-36">
+          {projectsData.map((project, index) => (
+            <div
+              key={project.id || index}
+              ref={(el) => (cardsRef.current[index] = el)}
+            >
+              <ProjectCard project={project} index={index} />
+            </div>
           ))}
+        </div>
       </div>
-
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default ProjectsSection;
